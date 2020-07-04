@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Used Car Price Predictor</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+
+<body>
+<!-- Website Title -->
+    <div class="container">
+        <h1 class="container-heading" ><span class="heading_font">Used Car Price Predictor</span></h1>
+    </div>
+
+<!-- Text Area -->
+    <div class="ML-container">
+        <form action="{{ url_for('predict')}}" method="POST">
+            <input class="form-input" type="number" name="Year" placeholder="Year" ><br>
+            <input class="form-input" type="number" name="Present_Price" placeholder="What is the Showroom Price?(In lakhs)" ><br>
+            <input class="form-input" type="number" name="Kms_Driven" placeholder="How Many Kilometers Drived?"  ><br>
+            <input class="form-input" type="number" name="Owner" placeholder="How much owners previously had the car(0 or 1 or 3) ?" ><br>
+
+            <select class="select-css" name="Fuel_Type_Petrol" required="required" ><br/>
+                <option> Select Fuel Type</option>
+                <option value="Petrol">Petrol</option>
+                <option value="Diesel">Diesel</option>
+                <option value="CNG">CNG</option>
+            </select><br>
+            <select class="select-css" name="Seller_Type_Individual" required="required">
+                <option>Seller Type</option>
+                <option value="Dealer">Dealer</option>
+                <option value="Individual">Individual</option>
+            </select><br>
+
+            <select class="select-css" name="Transmission_Mannual" required="required">
+                <option>Transmission Type</option>
+                <option value="Mannual">Manual Car</option>
+                <option value="Automatic">Automatic Car</option>
+            </select><br></br>
+            <input type="submit" class="my-cta-button" value="Predict"><br/>
+            <br>
+        </form>
+    </div><br>
+<h2> {{ prediction_text }} </h2>
+
+<br></br>
+
+<!-- Footer -->
+      <div class='footer'>
+           <div class="contact">
+               <a target="_blank" href="https://github.com/RahulJha11"><i class="fab fa-github fa-lg contact-icon"></i></a>
+               <a target="_blank" href="https://www.linkedin.com/in/rahul-jha-2429b0136"><i class="fab fa-linkedin fa-lg contact-icon"></i></a>
+           </div>
+           <p class='footer-description'>Made by Rahul Jha.</p>
+       </div>
+
+
+</body>
+</html>
